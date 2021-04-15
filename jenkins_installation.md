@@ -1,6 +1,4 @@
 # Install Jenkins on AWS EC2
-Jenkins is a self-contained Java-based program, ready to run out-of-the-box, with packages for Windows, Mac OS X and other Unix-like operating systems. As an extensible automation server, Jenkins can be used as a simple CI server or turned into the continuous delivery hub for any project.
-
 
 ### Prerequisites
 1. EC2 Instance 
@@ -9,29 +7,9 @@ Jenkins is a self-contained Java-based program, ready to run out-of-the-box, wit
 1. Java v1.8.x 
 
 ## Install Java
-1. We will be using open java for our demo, Get the latest version from http://openjdk.java.net/install/
-   ```sh
-   yum install java-1.8*
-   #yum -y install java-1.8.0-openjdk-devel
-   ```
-
-1. Confirm Java Version and set the java home
-   ```sh
-   java -version
-   find /usr/lib/jvm/java-1.8* | head -n 3
-   JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-<Java version which seen in the above output>
-   export JAVA_HOME
-   PATH=$PATH:$JAVA_HOME
-    # To set it permanently update your .bash_profile
-   vi ~/.bash_profile
-   ```
-   _The output should be something like this,_
-    ```sh
-   [root@~]# java -version
-   openjdk version "1.8.0_151"
-   OpenJDK Runtime Environment (build 1.8.0_151-b12)
-   OpenJDK 64-Bit Server VM (build 25.151-b12, mixed mode)
-   ```
+  ```sh
+  yum install java-1.8* -y
+  ```
 
 ## Install Jenkins
  You can install jenkins using the rpm or by setting up the repo. We will set up the repo so that we can update it easily in the future.
@@ -47,10 +25,8 @@ Jenkins is a self-contained Java-based program, ready to run out-of-the-box, wit
    ```sh
    # Start jenkins service
    service jenkins start
-
-   # Setup Jenkins to start at boot,
-   chkconfig jenkins on
    ```
+ 
 
    ### Accessing Jenkins
    By default jenkins runs at port `8080`, You can access jenkins at
