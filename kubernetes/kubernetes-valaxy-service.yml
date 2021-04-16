@@ -6,4 +6,4 @@
 
   tasks:
   - name: create a service
-    command: kubectl apply -f valaxy-service.yml
+    command: kubectl apply -f loveguptapp-service.yml
