@@ -1,4 +1,4 @@
-# Setup Kubernetes (K8s) Cluster on AWS
+# Setup Kubernetes Cluster on AWS ubuntu
 
 
 1. Create Ubuntu EC2 instance
