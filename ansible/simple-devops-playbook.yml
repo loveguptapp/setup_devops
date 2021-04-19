@@ -1,0 +1,29 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+
+  - name: stop current container
+    command: docker stop simple-devops-container
+    ignore_errors: yes
+
+  - name: remove current container
+    command: docker rm simple-devops-container
+    ignore_errors: yes
+
+  - name: remove container image
+    command: docker rmi loveguptapp/simple-devops-image:latest
+    ignore_errors: yes
+
+#  - name: create docker image using dockerfile
+#    command: docker build -t simple-devops-image .
+#    args:
+#      chdir: /opt/docker/
+
+  - name: pull image from dockerhub
+    command: docker pull loveguptapp/simple-devops-image:latest
+
+  - name: create docker container using this image
+    command: docker run -d --name simple-devops-container -p 80:80 loveguptapp/simple-devops-image:latest
+...
